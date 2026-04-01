@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Generate Access Key</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b1120;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        .card {
+            background-color: #171f32;
+            border: 1px solid #2a3449;
+            border-radius: 16px;
+            padding: 30px 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+        }
+
+        .header h2 {
+            font-size: 22px;
+            margin-bottom: 20px;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .info-box {
+            background-color: #1c253c;
+            border-left: 4px solid #6366f1;
+            padding: 15px;
+            border-radius: 8px;
+            margin-bottom: 25px;
+            color: #94a3b8;
+            font-size: 14px;
+            line-height: 1.5;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            margin-bottom: 15px;
+            transition: opacity 0.2s;
+            color: #fff;
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+        }
+
+        .btn-primary {
+            background: linear-gradient(135deg, #7c3aed, #4f46e5);
+        }
+
+        .btn-secondary {
+            background: linear-gradient(135deg, #f59e0b, #d97706);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .divider {
+            height: 1px;
+            background-color: #2a3449;
+            margin: 25px 0;
+        }
+
+        .key-input-section {
+            display: flex;
+            flex-direction: column;
+            gap: 15px;
+        }
+
+        input[type="text"] {
+            width: 100%;
+            padding: 14px;
+            border-radius: 10px;
+            border: 1px solid #2a3449;
+            background-color: #0b1120;
+            color: #fff;
+            font-size: 15px;
+            outline: none;
+        }
+
+        input[type="text"]:focus {
+            border-color: #6366f1;
+        }
+
+        .btn-submit {
+            background-color: #10b981;
+        }
+
+        .error-msg {
+            color: #ef4444;
+            font-size: 14px;
+            display: none;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="header">
+            <h2>🔑 Generate Access Key</h2>
+        </div>
+
+        <div class="info-box">
+            Click the button below to generate your access key. You will be redirected to a verification page. Complete the process and return here for full access.
+        </div>
+
+        <a href="https://zsofficialsite.github.io/Verification-/Key.html" target="_blank" class="btn btn-primary">
+            Generate Access Key
+        </a>
+
+        <a href="https://youtube.com/your-video-link" target="_blank" class="btn btn-secondary">
+            📹 How to Generate Key
+        </a>
+
+        <div class="divider"></div>
+
+        <div class="key-input-section">
+            <h2 style="font-size: 18px; text-align: center;">Enter Your Key</h2>
+            <input type="text" id="accessKey" placeholder="Paste your key here...">
+            <p class="error-msg" id="errorMsg">❌ Invalid Key! Please try again.</p>
+            <button onclick="verifyKey()" class="btn btn-submit">Verify & Access</button>
+        </div>
+    </div>
+
+    <script>
+        function verifyKey() {
+            const userKey = document.getElementById("accessKey").value.trim();
+            const errorMsg = document.getElementById("errorMsg");
+
+            // Yeh rahi aapki Set ki hui Key. 
+            // Apne users ko shortener ke end me yahi same key dena: VIP-UNLOCK-2026
+            const validKey = "VIP-UNLOCK-2026"; 
+
+            if (userKey === validKey) {
+                errorMsg.style.display = "none";
+                
+                // 3. YAHAN MAIN WEBSITE YA FILE KA LINK DAALEIN JAHA REDIRECT KARNA HAI
+                window.location.href = "https://zsofficialsite.github.io/Salahuddin-Ayybi-Season-2-Episode-119/";
+                
+            } else {
+                errorMsg.style.display = "block";
+            }
+        }
+    </script>
+
+</body>
+</html>

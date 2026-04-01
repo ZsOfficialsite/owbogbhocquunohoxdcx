@@ -1,0 +1,144 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Key Successfully Generated</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+
+        body {
+            background-color: #0b1120;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            min-height: 100vh;
+            padding: 20px;
+            color: #ffffff;
+        }
+
+        .card {
+            background-color: #171f32;
+            border: 1px solid #2a3449;
+            border-radius: 16px;
+            padding: 40px 20px;
+            width: 100%;
+            max-width: 400px;
+            box-shadow: 0 10px 30px rgba(0, 0, 0, 0.5);
+            text-align: center;
+        }
+
+        .success-icon {
+            font-size: 50px;
+            margin-bottom: 10px;
+        }
+
+        .card h2 {
+            color: #10b981; /* Green success color */
+            font-size: 24px;
+            margin-bottom: 10px;
+        }
+
+        .card p {
+            color: #94a3b8;
+            font-size: 15px;
+            margin-bottom: 25px;
+            line-height: 1.5;
+        }
+
+        .key-container {
+            background-color: #0b1120;
+            border: 2px dashed #6366f1;
+            border-radius: 10px;
+            padding: 15px;
+            margin-bottom: 20px;
+        }
+
+        .key-text {
+            font-size: 20px;
+            font-weight: bold;
+            color: #ffffff;
+            letter-spacing: 1px;
+        }
+
+        .btn {
+            display: block;
+            width: 100%;
+            padding: 14px;
+            border: none;
+            border-radius: 10px;
+            font-size: 16px;
+            font-weight: 600;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            transition: all 0.3s ease;
+            color: #fff;
+            background: linear-gradient(135deg, #7c3aed, #4f46e5); /* Purple-blue gradient */
+        }
+
+        .btn:hover {
+            opacity: 0.9;
+            transform: translateY(-2px);
+        }
+
+        .btn.copied {
+            background: #10b981; /* Changes to green when copied */
+        }
+
+        .footer-text {
+            margin-top: 20px;
+            font-size: 13px !important;
+            color: #64748b !important;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="card">
+        <div class="success-icon">🎉</div>
+        <h2>Success!</h2>
+        <p>Your access key has been successfully generated. Click the button below to copy it.</p>
+
+        <div class="key-container">
+            <div class="key-text" id="keyToCopy">VIP-UNLOCK-2026</div>
+        </div>
+
+        <button onclick="copyKey()" id="copyBtn" class="btn">
+            📋 Click Here to Copy Key
+        </button>
+
+        <p class="footer-text">Now go back to the previous page and paste this key to unlock your content.</p>
+    </div>
+
+    <script>
+        function copyKey() {
+            // Key text ko uthana
+            const keyText = document.getElementById("keyToCopy").innerText;
+            
+            // Clipboard me copy karna (Mobile & PC dono ke liye)
+            navigator.clipboard.writeText(keyText).then(() => {
+                const btn = document.getElementById("copyBtn");
+                
+                // Button ka text aur color change karna 
+                btn.innerHTML = "✅ Key Copied Successfully!";
+                btn.classList.add("copied");
+
+                // 3 second baad wapas normal kar dena
+                setTimeout(() => {
+                    btn.innerHTML = "📋 Click Here to Copy Key";
+                    btn.classList.remove("copied");
+                }, 3000);
+            }).catch(err => {
+                alert("Failed to copy! Please select the text and copy manually.");
+            });
+        }
+    </script>
+
+</body>
+</html>
